@@ -5,6 +5,8 @@ import (
 	"os"
 
 	"github.com/T1mofey4/url-shortener/internal/config"
+	"github.com/T1mofey4/url-shortener/internal/lib/logger/sl"
+	"github.com/T1mofey4/url-shortener/internal/storage/sqlite"
 )
 
 const (
@@ -14,7 +16,6 @@ const (
 )
 
 func main() {
-	// TODO: init config: cleanenv
 	cfg := config.MustLoad()
 
 	log := setupLogger(cfg.Env)
@@ -22,9 +23,13 @@ func main() {
 	log.Info("starting url-shortener", slog.String("env", cfg.Env))
 	log.Debug("debug messages are enabled")
 
-	// TODO: init logger: slog
+	storage, err := sqlite.New(cfg.StoragePath)
+	if err != nil {
+		log.Error("filed to init storage", sl.Err(err))
+		os.Exit(1)
+	}
 
-	// TODO: init storage: sqlite
+	_ = storage
 
 	// TODO: init router: chi, "chi, render"
 
