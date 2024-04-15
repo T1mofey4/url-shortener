@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/T1mofey4/urlShortener/cmd/internal/config"
+	"github.com/T1mofey4/url-shortener/internal/config"
 )
 
 func main() {

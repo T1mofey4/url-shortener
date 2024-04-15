@@ -1,4 +1,4 @@
-module github.com/T1mofey4/urlShortener
+module github.com/T1mofey4/url-shortener
 
 go 1.22.2
 
