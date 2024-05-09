@@ -29,8 +29,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	// TODO: init router: chi, "chi, render"
-
 	// TODO: run server
 }
 
