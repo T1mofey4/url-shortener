@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/T1mofey4/url-shortener/internal/http-server/handlesr/url/save"
+	"github.com/T1mofey4/url-shortener/internal/http-server/handlers/url/save"
 	mwLogger "github.com/T1mofey4/url-shortener/internal/http-server/middleware/logger"
 
 	"github.com/T1mofey4/url-shortener/internal/config"
@@ -29,6 +29,7 @@ func main() {
 
 	log.Info("starting url-shortener", slog.String("env", cfg.Env))
 	log.Debug("debug messages are enabled")
+	log.Error("error messages are enabled")
 
 	storage, err := sqlite.New(cfg.StoragePath)
 	if err != nil {
